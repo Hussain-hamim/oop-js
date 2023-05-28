@@ -1,16 +1,21 @@
-let x = { value: 10 };
-let y = x;
+//adding or removing properties to object
+//adding: dot notation and bracket notation
+//removing: delete keyword
 
-x.value = 20;
-
-// primitives are copied by their value.
-//objects copied by their references.
-
-let obj = {value: 10};
-
-function increase(obj) {
-  obj.value++;
+function Circle(radius) {
+  this.radius = radius;
+  this.draw = function () {
+    console.log("draw");
+  };
 }
- 
-increase(obj);
-console.log(obj);
+
+const circle = new Circle(10);
+
+//dot notation
+circle.location = { x: "Afg" };
+
+//bracket notation
+circle["add"] = { y: "khost" };
+
+//removing
+delete circle["add"];
