@@ -1,14 +1,16 @@
+let x = { value: 10 };
+let y = x;
 
+x.value = 20;
 
-//function are object in js
-function Circle(radius) {
-  this.radius = radius;
-  this.draw = function () {
-    console.log("draw");
-  };
+// primitives are copied by their value.
+//objects copied by their references.
+
+let obj = {value: 10};
+
+function increase(obj) {
+  obj.value++;
 }
-
-Circle.call({}, 1);
-Circle.apply({}, [1]);
-
-const another = new Circle(1);
+ 
+increase(obj);
+console.log(obj);
