@@ -1,7 +1,4 @@
-//adding or removing properties to object
-//adding: dot notation and bracket notation
-//removing: delete keyword
-
+//enumrating though object
 function Circle(radius) {
   this.radius = radius;
   this.draw = function () {
@@ -11,11 +8,22 @@ function Circle(radius) {
 
 const circle = new Circle(10);
 
-//dot notation
-circle.location = { x: "Afg" };
+//to get key in the object
+for (let key in circle) {
+  console.log(key);
+}
 
-//bracket notation
-circle["add"] = { y: "khost" };
+//to get key value in the object we use the bracket notation
+for (let key in circle) {
+  console.log(key, circle[key]);
+}
 
-//removing
-delete circle["add"];
+//another to access key in object
+const keys = Object.keys(circle);
+console.log(keys);
+
+//check for existing a property in an object we use (if - in)
+if('radius' in circle){
+    console.log('circle has a radius');
+}
+
