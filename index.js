@@ -1,21 +1,24 @@
-//hide the details only show the essential.
+//private properties and method.
 function Circle(radius){
     this.radius = radius;
-this.defaultLocation = {x: 0, y: 0};
-this.computeOptimumLocation = function(){
-    console.log('compute method');
-    //...
+
+    let defaultLocation = {x: 0, y: 0};
+
+    let omputeOptimumLocation = function( factor){
+        console.log('compute method');
+        //...
 }
 
     this.draw = function(){
-        this.computeOptimumLocation();
+        computeOptimumLocation(0.1);
+        //defaultLocation
+        //this.radius
 
         console.log('draw');
     };
 }
 
 const circle = new Circle(10);
-
 circle.draw();
 
 
