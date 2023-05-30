@@ -1,12 +1,27 @@
-//property attribute
+// prototype vs instance member
 
-let person = {name: 'hussain'};
+function Circle(radius){
+   //instance member
+   this.radius = radius;
+   this.move = function(){
+     // this.draw();
+      console.log('move...');
+   }
+}
 
-Object.defineProperty(person, 'name', {
-   writable: false,
-   enumerable: true,
-   configurable: false
-});
-delete person.name
+//prototype member
+Circle.prototype.draw = function(){
+   this.move();
+   console.log('draw...');
+}
 
-console.log(person);
+const c1 = new Circle(1);
+const c2 = new Circle(1);
+
+console.log(c1.draw());
+
+Circle.prototype.toString = function(){
+   return 'circle with radius ' + this.radius;
+}
+
+console.log(c2.toString());
