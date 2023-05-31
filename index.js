@@ -1,51 +1,31 @@
-///-----------------counter or stopwatch----------------------------
+// iterating object properties 
 
+function Circle(radius) {
+  //instance member
+  this.radius = radius;
 
-function Stopwatch() {
-  let startTime,
-    endTime,
-    running,
-    duration = 0;
-
-  this.start = function () {
-    if (running) throw new Error("Stopwatch has already started.");
-
-    running = true;
-
-    startTime = new Date();
-      // document.getElementById("p").innerHTML = "counter: " + startTime.getSeconds();
-
+  this.move = function () {
+    console.log("move...");
   };
-
-  this.stop = function () {
-    if (!running) throw new Error("Stopwatch is not started.");
-
-    running = false;
-
-    endTime = new Date();
-
-    const seconds = (endTime.getTime() - startTime.getTime()) / 1000;
-    duration += seconds;
-  };
-
-  this.reset = function () {
-    startTime = null;
-    endTime = null;
-    running = false;
-    duration = 0;
-    document.getElementById("p").innerText = "counter: ";
-  };
-
-  Object.defineProperty(this, "duration", {
-    get: function () {
-      return duration;
-    },
-  });
-};
-
-function dur(){
-
-   document.getElementById('p').innerText ="counter: "+ sw.duration;
 }
 
-const sw = new Stopwatch();
+//prototype member
+Circle.prototype.draw = function () {
+  console.log("draw...");
+};
+
+const c1 = new Circle(1);
+
+//object.keys() only return instance members.
+console.log(Object.keys(c1));
+
+//for-in loop return all member (instance + prototype).
+for(let key in c1){
+   console.log(key);
+}
+
+//checking for own property prototype is not own (instance) member
+let che = c1.hasOwnProperty('draw');
+let che1 = c1.hasOwnProperty('radius');
+console.log(che);
+console.log(che1);
